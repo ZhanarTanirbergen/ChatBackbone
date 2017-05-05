@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="newstyle.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+  </head>
+  <body>
+    <div class="container fill">
+        <div class="row chat-wrap">
+            <!-- Contacts & Conversations -->
+            <div class="col-md-3 panel-wrap">
+                    <div class="row header-wrap">
+                        <div class="chat-header col-md-12">
+                            <a class="btn send-btn" id = "addContacts">
+                              <h4 id="contacts">Contacts</h4>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row content-wrap">
+                      <div id = "chatslist">
+                      <script type="x-template/underscore" id="contactView">
+                        <div class="conversation btn">
+                                <div class = 'media-body'>
+                                   <small class="pull-right time" id = 'delete'><img src = "img/cross.png" id = "cross"></small>
+                                  <h5 class="media-heading" id = "contact"><a class="single"><%= name %></a></h5>
+                                  <h5 id = "status"><%= status %></h5>
+                                  <small class="pull-right time" id = "lastActiveDate">Created at <%= lastActiveDate %></small>
+                                </div>
+                        </div>
+                      </script>  
+                      </div>
+                    </div>
+            </div>
+            
+            <!-- Messages & Info -->
+            <div class="col-md-7 panel-wrap">
+                 <div class="col-md-12 section-wrap" id="Messages">
+                    <div class="row header-wrap">
+                        <div class="chat-header col-md-12">
+                            <h4>Your conversation</h4>
+                            <div class="header-button">
+                                <a class="btn pull-right info-btn">
+                                    <img src="img/search.png" id = "search">
+                                    <img src="img/trash.png" id = "deleteChat">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Messages-->
+                    <div class="row content-wrap messages">
+                          <div id = "chat">
+                            <script type="x-template/underscore" id="messageView">
+                              <div class="msg">
+                                <div class="media-body">
+                                 <small class="pull-right time" id = 'messageDate'><img src = "img/clock.png" id = "clock"><%= date%></small>
+                                  <h5 class="media-heading" id = 'messageAuthor'><%= authorName%></h5>  
+                                  <small class="col-md-11" id = 'messageText'><%= text%></small>
+                                  <small class="pull-right select" id = 'messageSelect'><img src = "img/select.png" id = "select"><img src = "img/edit.png" id = "edit"><img src = "img/dropper.png" id = "dropper"></small>
+                                </div>
+                              </div>
+                            </script>
+                          </div>
+                    </div>
+                    <!--Message box & Send Button-->
+                    <div class="row send-wrap">
+                        <div class="send-message">
+                            <div class="message-text">
+                                <textarea class="no-resize-bar form-control" id = "messageInput" rows="2" placeholder="Write a message..."></textarea>
+                            </div>
+                            <div class="send-button">
+                                <a class="btn send-btn">
+                                    <img src="img/send.png" id = "sendMessage">
+                                    <img src="img/crossm.png" id = "deleteSelected">   
+                                    <img src="img/palette.png" id = "paintSelected">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row send-smiley-wrap">
+                            <div class="send-smiley">
+                                <a class="btn send-btn">
+                                    <img id="smile" src="img/smiles.png">
+                                    <img id="happy" src="img/smiley_happy.png">
+                                    <img id="bus" src="img/smiley_bus.png">
+                                    <img id="broken-heart" src="img/circle.png">
+                                    <img id="blink" src="img/smiley_blink.png">
+                                    <img id="crying" src="img/smiley_crying.png">
+                                    <img id="disappointed" src="img/smiley_disappointed.png">
+                                    <img id="broken-heart" src="img/rain-drop.png">
+                                    <img id="laugh" src="img/smiley_laugh.png">
+                                    <img id="broken-heart" src="img/broken-heart.png">
+                                    <img id="broken-heart" src="img/rainbow.png">
+                                    <img id="broken-heart" src="img/whale.png">
+                                    <img id="sleeping" src="img/smiley_sleeping.png">
+                                    <img id="cap" src="img/smiley_cap.png">
+                                    <img id="thumsup" src="img/smiley_thumsup.png">
+                                    <img id="clown" src="img/smiley_clown.png">
+                                    <img id="broken-heart" src="img/asleep.png">
+                                    <img id="bored" src="img/smiley_bored.png">
+                                    <img id="broken-heart" src="img/diamond.png">
+                                    <img id="pleasure" src="img/smiley_pleasure.png">
+                                    <img id="humor" src="img/smiley_humor.png">
+                                    <img id="sun" src="img/smiley_sun.png">
+                                </a>
+                            </div>
+                    </div>
+                </div>                   
+            </div>
+            <div class="col-md-2 panel-wrap">
+                    <div class="row header-wrap">
+                        <div class="chat-header col-md-12">
+                            <h4 id="contacts">Your profile</h4>
+                        </div>
+                    </div>
+                    <div class="row content-wrap">
+                        <div class="edit-profile">
+                             <h5 class="title">Name: <span id="userName"></span></h5>
+                             <h5 class="status">Status: <span id="userStatus"></span></h5>
+                            <textarea id = "changeName" class="no-resize-bar form-control" rows="1" placeholder="New user name..."></textarea>
+                            <textarea id = "changeStatus" class="no-resize-bar form-control" rows="1" placeholder="New status..."></textarea>
+
+                            <div class="send-button">
+                              <a class="btn send-btn" id = "changeModel">
+                                  Send
+                              </a>
+                            </div>
+                    </div>
+            </div>        
+        </div>
+    </div>
+  <script src="vendor/jquery.js"></script>
+  <script src="vendor/json2.js"></script>
+  <script src="vendor/underscore.js"></script>
+  <script src="vendor/backbone.js"></script>
+  <script src="vendor/backbone.radio.js"></script>
+  <script src="vendor/backbone.marionette.min.js"></script>
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="click.js"></script>
+   <script type="text/javascript" src="manager.js"></script>
+  <script type="text/javascript" src="models.js"></script>
+  <script type="text/javascript" src="instances.js"></script>
+  <script type="text/javascript" src="views.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+  </body>
+</html> 
